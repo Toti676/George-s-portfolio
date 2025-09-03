@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "title": "E-Commerce Platform",
+    "description": "A full-stack e-commerce application with user authentication, product management, and payment integration.",
+    "technologies": ["React", "Node.js", "MongoDB", "Stripe"],
+    "image": "https://via.placeholder.com/300x200/4F46E5/FFFFFF?text=E-Commerce",
+    "demo_link": "https://demo-ecommerce.com",
+    "repo_link": "https://github.com/username/ecommerce-app",
+    "category": "Full-Stack"
+  },
+  {
+    "id": 2,
+    "title": "Task Management App",
+    "description": "A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.",
+    "technologies": ["React", "Firebase", "Tailwind CSS", "DnD Kit"],
+    "image": "https://via.placeholder.com/300x200/10B981/FFFFFF?text=Task+App",
+    "demo_link": "https://task-app-demo.com",
+    "repo_link": "https://github.com/username/task-app",
+    "category": "Frontend"
+  },
+  {
+    "id": 3,
+    "title": "Weather Dashboard",
+    "description": "A weather application that displays current weather conditions, forecasts, and historical data with interactive charts.",
+    "technologies": ["JavaScript", "Chart.js", "OpenWeather API", "CSS3"],
+    "image": "https://via.placeholder.com/300x200/F59E0B/FFFFFF?text=Weather+App",
+    "demo_link": "https://weather-dashboard.com",
+    "repo_link": "https://github.com/username/weather-app",
+    "category": "Frontend"
+  },
+  {
+    "id": 4,
+    "title": "Machine Learning API",
+    "description": "A RESTful API for machine learning models with endpoints for image classification, text analysis, and data processing.",
+    "technologies": ["Python", "Flask", "TensorFlow", "Docker", "PostgreSQL"],
+    "image": "https://via.placeholder.com/300x200/DC2626/FFFFFF?text=ML+API",
+    "demo_link": "https://ml-api-demo.com",
+    "repo_link": "https://github.com/username/ml-api",
+    "category": "Backend"
+  }
+]

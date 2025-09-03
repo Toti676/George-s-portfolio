@@ -1,0 +1,200 @@
+.admin {
+  padding: 2rem 0;
+  min-height: 100vh;
+  background-color: #f9fafb;
+}
+
+.admin .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.admin h1 {
+  text-align: center;
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+}
+
+.admin > .container > p {
+  text-align: center;
+  color: #6b7280;
+  margin-bottom: 2rem;
+}
+
+.admin-loading,
+.admin-error,
+.no-contacts {
+  text-align: center;
+  padding: 3rem;
+  color: #6b7280;
+}
+
+.admin-error {
+  color: #dc2626;
+}
+
+.contacts-list {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.contact-card {
+  background: white;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border-left: 4px solid #e5e7eb;
+  transition: all 0.2s ease;
+}
+
+.contact-card:hover {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.contact-card.new {
+  border-left-color: #3b82f6;
+}
+
+.contact-card.read {
+  border-left-color: #10b981;
+}
+
+.contact-card.replied {
+  border-left-color: #f59e0b;
+}
+
+.contact-card.archived {
+  border-left-color: #9ca3af;
+  opacity: 0.7;
+}
+
+.contact-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.contact-header h3 {
+  margin: 0;
+  color: #1f2937;
+  font-size: 1.25rem;
+}
+
+.status-badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.status-badge.new {
+  background-color: #dbeafe;
+  color: #1e40af;
+}
+
+.status-badge.read {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.status-badge.replied {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.status-badge.archived {
+  background-color: #f3f4f6;
+  color: #374151;
+}
+
+.contact-info {
+  margin-bottom: 1.5rem;
+}
+
+.contact-info p {
+  margin: 0.5rem 0;
+  color: #4b5563;
+}
+
+.contact-info strong {
+  color: #1f2937;
+}
+
+.message-content {
+  background-color: #f9fafb;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-top: 0.5rem;
+  white-space: pre-wrap;
+  line-height: 1.6;
+  color: #374151;
+}
+
+.contact-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.contact-actions button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-mark-read {
+  background-color: #10b981;
+  color: white;
+}
+
+.btn-mark-read:hover {
+  background-color: #059669;
+}
+
+.btn-mark-replied {
+  background-color: #f59e0b;
+  color: white;
+}
+
+.btn-mark-replied:hover {
+  background-color: #d97706;
+}
+
+.btn-archive {
+  background-color: #6b7280;
+  color: white;
+}
+
+.btn-archive:hover {
+  background-color: #4b5563;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .admin {
+    padding: 1rem 0;
+  }
+  
+  .contact-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .contact-actions {
+    flex-direction: column;
+  }
+  
+  .contact-actions button {
+    width: 100%;
+  }
+}
