@@ -91,6 +91,13 @@
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
+.profile-placeholder img {
+  border-radius: 50% !important;
+  width: 200px !important;
+  height: 200px !important;
+  object-fit: cover;
+}
+
 /* Responsive design */
 @media (max-width: 1024px) {
   .hero-container {
