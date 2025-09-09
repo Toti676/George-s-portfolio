@@ -5,8 +5,8 @@
     "description": "A full-stack Web portfolio application used to display my projects and skills.",
     "technologies": ["React", "Node.js", "Flask"],
     "image": "/web-portfolio-pic.png",
-    "demo_link": "https://demo-ecommerce.com",
-    "repo_link": "https://github.com/username/ecommerce-app",
+    "demo_link": "https://georgesportfolio.com/",
+    "repo_link": "https://github.com/Toti676/George-s-portfolio",
     "category": "Full-Stack"
   }
 ]
