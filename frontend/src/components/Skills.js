@@ -22,10 +22,10 @@ const Skills = () => {
       console.error('Error fetching skills:', err);
       // Fallback to hardcoded skills if API fails
       setSkills({
-        frontend: ["HTML5", "CSS3", "JavaScript", "React", "TypeScript", "Tailwind CSS", "Bootstrap"],
-        backend: ["Python", "Node.js", "Flask", "Express.js", "Django", "PostgreSQL", "MongoDB"],
-        tools: ["Git", "Docker", "AWS", "Heroku", "Vercel", "VS Code", "Postman"],
-        other: ["RESTful APIs", "GraphQL", "CI/CD", "Agile", "Responsive Design", "UI/UX"]
+        frontend: ["HTML5", "CSS3", "JavaScript", "React"],
+        backend: ["Python", "Node.js", "Flask", "MySQL"],
+        tools: ["Git", "VS Code", "Postman"],
+        other: ["RESTful APIs", "Agile","UI/UX"]
       });
       setLoading(false);
     }

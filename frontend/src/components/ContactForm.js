@@ -47,7 +47,7 @@ const ContactForm = ({ formData, setFormData, onSubmit, isSubmitting = false }) 
           name="message"
           value={formData.message}
           onChange={handleChange}
-          placeholder="Tell me about your project or just say hello!"
+          placeholder="Send me a message or just say hello!"
           rows="5"
           required
         ></textarea>

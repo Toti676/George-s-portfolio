@@ -59,10 +59,6 @@ const Projects = () => {
     <div className="projects-page">
       <div className="container">
         <h1>My Projects</h1>
-        <p className="projects-intro">
-          Here are some of the projects I've worked on. Each project represents a unique challenge 
-          and learning opportunity, showcasing different technologies and problem-solving approaches.
-        </p>
         
         {/* Filter buttons */}
         <div className="filter-buttons">
