@@ -18,7 +18,7 @@ const Hero = () => {
              please feel free to contact me using the contact form below or by calling <b>+64 027 416 2440</b>.
           </p>
           <div className="hero-buttons">
-            <a href="#projects" className="btn btn-primary">
+            <a href="projects" className="btn btn-primary">
               View My Work
             </a>
             <a href="#contact" className="btn btn-secondary">
