@@ -17,6 +17,22 @@ A modern, responsive portfolio website built with React frontend and Flask backe
 - **Gunicorn** - Production WSGI server
 
 ## Quick Start
+Running locally:
+
+Backend:
+- In terminal:
+    - cd to /backend
+    - run 'venv\Scripts\activate' to activate enviroment
+    - run 'python install -r requirements.txt'
+    - run 'python app.py'
+
+Frontend:
+- In terminal:
+    - cd to /frontend
+    - run 'npm install'
+    - run 'npm start'
+
+Access on http://localhost:3000/
 
 ### Prerequisites
 - Python 3.8+
