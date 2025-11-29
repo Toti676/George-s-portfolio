@@ -24,8 +24,9 @@ const Skills = () => {
       setSkills({
         frontend: ["HTML5", "CSS3", "JavaScript", "React"],
         backend: ["Python", "Node.js", "Flask", "MySQL"],
-        tools: ["Git", "VS Code", "Postman"],
-        other: ["RESTful APIs", "Agile","UI/UX"]
+        tools: ["Git", "VS Code", "Postman", "Render", "Netlify"],
+        other: ["RESTful APIs", "Agile","UI/UX"],
+        non_technical: ["Leadership", "Communication", "Teamwork", "Problem Solving", "Time Management", "Adaptability", "Critical Thinking"]
       });
       setLoading(false);
     }
@@ -51,10 +52,21 @@ const Skills = () => {
         </p>
         
         <div className="skills-grid">
-          {Object.entries(skills).map(([category, skillList]) => (
+          {Object.entries(skills)
+            .sort(([a], [b]) => {
+              // Define the order you want
+              const order = ['frontend', 'backend', 'tools', 'other', 'non_technical'];
+              const indexA = order.indexOf(a);
+              const indexB = order.indexOf(b);
+              // If category not in order array, put it at the end
+              if (indexA === -1) return 1;
+              if (indexB === -1) return -1;
+              return indexA - indexB;
+            })
+            .map(([category, skillList]) => (
             <div key={category} className="skill-category">
               <h3 className="category-title">
-                {category.charAt(0).toUpperCase() + category.slice(1)}
+                {category.charAt(0).toUpperCase() + category.slice(1).replace('_', ' ')}
               </h3>
               <div className="skills-list">
                 {skillList.map((skill, index) => (

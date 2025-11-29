@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
+import ChatBot from './components/ChatBot';
 import Home from './pages/Home';
 import Projects from './pages/Projects';
 import Admin from './pages/Admin';
@@ -18,6 +19,7 @@ function App() {
             <Route path="/admin" element={<Admin />} />
           </Routes>
         </main>
+        <ChatBot />
       </div>
     </Router>
   );

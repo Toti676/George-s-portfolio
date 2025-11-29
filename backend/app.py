@@ -3,9 +3,19 @@ from flask_cors import CORS
 import json
 import os
 from datetime import datetime
+from dotenv import load_dotenv
+import google.generativeai as genai
+
+# Load environment variables
+load_dotenv()
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
+
+# Configure Gemini API
+GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
+if GEMINI_API_KEY:
+    genai.configure(api_key=GEMINI_API_KEY)
 
 # Load sample data
 def load_projects():
@@ -63,8 +73,9 @@ def load_skills():
     return {
         "frontend": ["HTML5", "CSS3", "JavaScript", "React"],
         "backend": ["Python", "Node.js", "Flask", "MySQL"],
-        "tools": ["Git", "VS Code", "Postman"],
-        "other": ["RESTful APIs", "Agile", "UI/UX"]
+        "tools": ["Git", "VS Code", "Postman", "Render", "Netlify"],
+        "other": ["RESTful APIs", "Agile", "UI/UX"],
+        "non_technical": ["Leadership", "Communication", "Teamwork", "Problem Solving", "Time Management", "Adaptability", "Critical Thinking"]
     }
 
 @app.route('/')
@@ -208,6 +219,81 @@ def update_contact_status(contact_id):
     except Exception as e:
         print(f"Error updating contact status: {e}")
         return jsonify({"error": "Internal server error"}), 500
+
+@app.route('/api/chat', methods=['POST'])
+def chat():
+    """Handle chatbot messages using Google Gemini API"""
+    try:
+        data = request.get_json()
+        
+        if not data or 'message' not in data:
+            return jsonify({"error": "Message is required"}), 400
+        
+        user_message = data['message']
+        
+        # Check if API key is configured
+        if not GEMINI_API_KEY:
+            return jsonify({
+                "error": "Gemini API key not configured",
+                "message": "Please set GEMINI_API_KEY environment variable"
+            }), 500
+        
+        # Create the model - use gemini-2.5-flash (faster, free tier) or fallback to gemini-pro
+        try:
+            model = genai.GenerativeModel('gemini-2.5-flash')
+        except Exception:
+            # Fallback to gemini-pro if flash is not available
+            try:
+                model = genai.GenerativeModel('gemini-pro')
+            except Exception:
+                # Last fallback - use any available model
+                models = [m.name for m in genai.list_models() if 'generateContent' in m.supported_generation_methods]
+                if models:
+                    model = genai.GenerativeModel(models[0].replace('models/', ''))
+                else:
+                    raise Exception("No available Gemini models found")
+        
+        # Create a system prompt for the portfolio chatbot
+        system_prompt = """You are a helpful AI assistant for George's portfolio website. 
+        You help visitors learn about George's projects, skills, and experience. 
+        Be friendly, concise, and professional. 
+        If asked about projects, mention they can check the Projects page.
+        If asked about skills, mention they can see the Skills section. 
+        If asked about contact, mention they can email georgehe676@gmail.com or call +64 027 416 2440.
+        Keep responses brief and helpful."""
+        
+        # Combine system prompt with user message
+        full_prompt = f"{system_prompt}\n\nUser: {user_message}\nAssistant:"
+        
+        # Generate response
+        response = model.generate_content(full_prompt)
+        
+        # Handle response - newer API versions might return response differently
+        if hasattr(response, 'text'):
+            bot_response = response.text.strip()
+        elif hasattr(response, 'candidates') and len(response.candidates) > 0:
+            bot_response = response.candidates[0].content.parts[0].text.strip()
+        else:
+            bot_response = str(response)
+        
+        return jsonify({
+            "message": bot_response,
+            "success": True
+        })
+        
+    except Exception as e:
+        import traceback
+        error_details = traceback.format_exc()
+        error_message = str(e)
+        print(f"Error in chat endpoint: {error_message}")
+        print(f"Full traceback:\n{error_details}")
+        
+        # Return more helpful error message to frontend
+        return jsonify({
+            "error": "Failed to generate response",
+            "message": error_message,
+            "success": False
+        }), 500
 
 @app.route('/api/health')
 def health_check():
