@@ -32,7 +32,7 @@
 2. Click **"Add Environment Variable"**
 3. Add:
    - **Key:** `GEMINI_API_KEY`
-   - **Value:** Your actual API key (e.g., `AIzaSyBjhYY_v_bZ0eYRRAdYeYpq8_4-EJD_L-s`)
+   - **Value:** Your actual API key 
 4. Click **"Save Changes"**
 
 ### 5. Deploy
