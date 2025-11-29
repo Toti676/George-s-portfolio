@@ -68,3 +68,8 @@ jspm_packages/
 
 # dotenv environment variables file
 .env
+
+# Deployment and setup documentation (optional - can be deleted)
+backend/DEPLOYMENT.md
+backend/RENDER_SETUP.md
+backend/GEMINI_SETUP.md

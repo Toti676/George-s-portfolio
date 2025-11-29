@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../styles/Hero.css';
 
 const Hero = () => {
@@ -18,9 +19,9 @@ const Hero = () => {
              please feel free to contact me using the contact form below or by calling <b>+64 027 416 2440</b>.
           </p>
           <div className="hero-buttons">
-            <a href="projects" className="btn btn-primary">
+            <Link to="/projects" className="btn btn-primary">
               View My Work
-            </a>
+            </Link>
             {/* <a href="#contact" className="btn btn-secondary">
               Get In Touch
             </a> */}
