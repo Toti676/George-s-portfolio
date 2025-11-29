@@ -310,11 +310,16 @@ if __name__ == '__main__':
         with open('data/projects.json', 'w') as f:
             json.dump(projects, f, indent=2)
     
+    # Get port from environment variable (Render provides this) or default to 5000
+    port = int(os.getenv('PORT', 5000))
+    
     print("🚀 Starting Portfolio Website API...")
-    print("📍 Backend running on: http://localhost:5000")
+    print(f"📍 Backend running on: http://0.0.0.0:{port}")
     print("🔗 Available endpoints:")
     print("   - GET /api/projects - Get all projects")
     print("   - GET /api/skills - Get all skills")
     print("   - GET /api/health - Health check")
     
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    # Only run Flask dev server if not in production (Render uses gunicorn)
+    if __name__ == '__main__':
+        app.run(debug=os.getenv('FLASK_ENV') != 'production', host='0.0.0.0', port=port)
