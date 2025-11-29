@@ -20,7 +20,7 @@ The `GEMINI_API_KEY` environment variable needs to be configured in your product
 4. Click **Add Environment Variable**
 5. Add:
    - **Key:** `GEMINI_API_KEY`
-   - **Value:** Your actual API key (e.g., `AIzaSyBjhYY_v_bZ0eYRRAdYeYpq8_4-EJD_L-s`)
+   - **Value:** Your actual API key
 6. Click **Save Changes**
 7. Redeploy your service (or it will auto-redeploy)
 
