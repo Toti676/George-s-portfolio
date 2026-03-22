@@ -8,5 +8,15 @@
     "demo_link": "https://georgesportfolio.com/",
     "repo_link": "https://github.com/Toti676/George-s-portfolio",
     "category": "Full-Stack"
+  },
+
+  {
+    "id": 2,
+    "title": "Mom's weekly workout plan",
+    "description": "A web application that I have built peronally for my Mom to help her track her weekly workout.",
+    "technologies": ["HTML", "CSS", "JavaScript"],
+    "image": "/Moms-workout-plan.png",
+    "repo_link": "https://github.com/Toti676/Moms_personal_workout_plan",
+    "category": "Frontend"
   }
 ]
